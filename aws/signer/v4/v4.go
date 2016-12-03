@@ -447,10 +447,12 @@ const logSignedURLMsg = `
 %s`
 
 func (v4 *Signer) logSigningInfo(ctx *signingCtx) {
+	fmt.Println("logging signing info")
 	signedURLMsg := ""
 	if ctx.isPresign {
 		signedURLMsg = fmt.Sprintf(logSignedURLMsg, ctx.Request.URL.String())
 	}
+	fmt.Println("checked if is presign")
 	msg := fmt.Sprintf(logSignInfoMsg, ctx.canonicalString, ctx.stringToSign, signedURLMsg)
 	v4.Logger.Log(msg)
 }
